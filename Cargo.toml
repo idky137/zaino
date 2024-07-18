@@ -22,8 +22,7 @@ license = "Apache-2.0"
 zingo-netutils = { git = "https://github.com/zingolabs/zingolib.git", tag = "mob-release-1.4.2" }
 
 # LibRustZcash
-zcash_client_backend = { git = "https://github.com/zingolabs/librustzcash.git", branch = "nym_integration", features = ["lightwalletd-tonic"] }
-# zcash_client_backend = { git = "https://github.com/zingolabs/librustzcash.git", tag = "always_require_change", features = ["lightwalletd-tonic"] }
+zcash_client_backend = { git = "https://github.com/zingolabs/librustzcash.git", tag = "always_require_change", features = ["lightwalletd-tonic"] }
 
 # NymSdk
 nym-sdk = { git = "https://github.com/nymtech/nym", branch = "master" }

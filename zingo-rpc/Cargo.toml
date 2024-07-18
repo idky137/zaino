@@ -17,8 +17,7 @@ zingo-netutils = { workspace = true }
 
 # LibRustZcash
 zcash_client_backend = { workspace = true, features = ["lightwalletd-tonic"] }
-zcash_encoding = { git = "https://github.com/zingolabs/librustzcash.git", branch = "nym_integration" }
-# zcash_encoding = { git = "https://github.com/zingolabs/librustzcash.git", tag = "always_require_change" }
+zcash_encoding = { git = "https://github.com/zingolabs/librustzcash.git", tag = "always_require_change" }
 
 # NymSdk
 nym-sdk = { workspace = true }
