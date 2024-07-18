@@ -16,18 +16,9 @@ zingo-rpc = { path = "../zingo-rpc" }
 zingo-proxyd = { path = "../zingo-proxyd" }
 
 # ZingoLib
-zingo-testutils = { git = "https://github.com/zingolabs/zingolib.git", branch = "nym_integration" }
-zingoconfig = { git = "https://github.com/zingolabs/zingolib.git", branch = "nym_integration" }
-zingolib = { git = "https://github.com/zingolabs/zingolib.git", branch = "nym_integration" }
-# zingo-testutils = { git = "https://github.com/zingolabs/zingolib.git", tag = "mob-release-1.4.2", package = "zingo-testutils" }
-# zingoconfig = { git = "https://github.com/zingolabs/zingolib.git", tag = "mob-release-1.4.2", package = "zingoconfig" }
-# zingolib = { git = "https://github.com/zingolabs/zingolib.git", tag = "mob-release-1.4.2", package = "zingolib" }
-
-# LibRustZcash
-zcash_client_backend = { workspace = true }
-
-# NymSdk
-nym-sdk = { workspace = true }
+zingo-testutils = { git = "https://github.com/zingolabs/zingolib.git", tag = "mob-release-1.4.2" }
+zingoconfig = { git = "https://github.com/zingolabs/zingolib.git", tag = "mob-release-1.4.2" }
+zingolib = { git = "https://github.com/zingolabs/zingolib.git", tag = "mob-release-1.4.2" }
 
 # Miscellaneous Workspace
 tokio = { workspace = true }

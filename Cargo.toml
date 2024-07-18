@@ -19,25 +19,23 @@ license = "Apache-2.0"
 
 [workspace.dependencies]
 # ZingoLib
-zingo-netutils = { git = "https://github.com/zingolabs/zingolib.git", branch = "nym_integration" }
-# zingo-netutils = { git = "https://github.com/zingolabs/zingolib.git", tag = "mob-release-1.4.2", package = "zingo-netutils" }
-
+zingo-netutils = { git = "https://github.com/zingolabs/zingolib.git", tag = "mob-release-1.4.2" }
 
 # LibRustZcash
 zcash_client_backend = { git = "https://github.com/zingolabs/librustzcash.git", branch = "nym_integration", features = ["lightwalletd-tonic"] }
 # zcash_client_backend = { git = "https://github.com/zingolabs/librustzcash.git", tag = "always_require_change", features = ["lightwalletd-tonic"] }
 
 # NymSdk
-nym-sdk = { git = "https://github.com/nymtech/nym", branch = "master" }
-nym-sphinx-addressing = { git = "https://github.com/nymtech/nym", branch = "master" }
-nym-validator-client = { git = "https://github.com/nymtech/nym", branch = "master" }
-nym-bin-common = { git = "https://github.com/nymtech/nym", branch = "master" }
-nym-sphinx-anonymous-replies = { git = "https://github.com/nymtech/nym", branch = "master" }
-# nym-sdk = { git = "https://github.com/nymtech/nym", tag = "nym-binaries-v2024.7-doubledecker" }
-# nym-sphinx-addressing = { git = "https://github.com/nymtech/nym", tag = "nym-binaries-v2024.7-doubledecker" }
-# nym-validator-client = { git = "https://github.com/nymtech/nym", tag = "nym-binaries-v2024.7-doubledecker" }
-# nym-bin-common = { git = "https://github.com/nymtech/nym", tag = "nym-binaries-v2024.7-doubledecker" }
-# nym-sphinx-anonymous-replies = { git = "https://github.com/nymtech/nym", tag = "nym-binaries-v2024.7-doubledecker" }
+# nym-sdk = { git = "https://github.com/nymtech/nym", branch = "master" }
+# nym-sphinx-addressing = { git = "https://github.com/nymtech/nym", branch = "master" }
+# nym-validator-client = { git = "https://github.com/nymtech/nym", branch = "master" }
+# nym-bin-common = { git = "https://github.com/nymtech/nym", branch = "master" }
+# nym-sphinx-anonymous-replies = { git = "https://github.com/nymtech/nym", branch = "master" }
+nym-sdk = { git = "https://github.com/nymtech/nym", tag = "nym-binaries-v2024.7-doubledecker" }
+nym-sphinx-addressing = { git = "https://github.com/nymtech/nym", tag = "nym-binaries-v2024.7-doubledecker" }
+nym-validator-client = { git = "https://github.com/nymtech/nym", tag = "nym-binaries-v2024.7-doubledecker" }
+nym-bin-common = { git = "https://github.com/nymtech/nym", tag = "nym-binaries-v2024.7-doubledecker" }
+nym-sphinx-anonymous-replies = { git = "https://github.com/nymtech/nym", tag = "nym-binaries-v2024.7-doubledecker" }
 
 # Miscellaneous
 tokio = { version = "1.37.0", features = ["full"] } # { version = "1.38.1", features = ["full"] }
