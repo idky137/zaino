@@ -125,25 +125,7 @@ impl ZcashService for FetchService {
         let mempool_status = self.mempool.status();
         let block_cache_status = self.block_cache.status();
 
-        match (mempool_status, block_cache_status) {
-            // If either is Closing, return Closing.
-            (StatusType::Closing, _) | (_, StatusType::Closing) => StatusType::Closing,
-            // If either is Offline or CriticalError, return CriticalError.
-            (StatusType::Offline, _)
-            | (_, StatusType::Offline)
-            | (StatusType::CriticalError, _)
-            | (_, StatusType::CriticalError) => StatusType::CriticalError,
-            // If either is RecoverableError, return RecoverableError.
-            (StatusType::RecoverableError, _) | (_, StatusType::RecoverableError) => {
-                StatusType::RecoverableError
-            }
-            // If either is Spawning, return Spawning.
-            (StatusType::Spawning, _) | (_, StatusType::Spawning) => StatusType::Spawning,
-            // If either is Syncing, return Syncing.
-            (StatusType::Syncing, _) | (_, StatusType::Syncing) => StatusType::Syncing,
-            // Otherwise, return Ready.
-            _ => StatusType::Ready,
-        }
+        mempool_status.combine(block_cache_status)
     }
 
     /// Shuts down the StateService.
@@ -182,25 +164,7 @@ impl FetchServiceSubscriber {
         let mempool_status = self.mempool.status();
         let block_cache_status = self.block_cache.status();
 
-        match (mempool_status, block_cache_status) {
-            // If either is Closing, return Closing.
-            (StatusType::Closing, _) | (_, StatusType::Closing) => StatusType::Closing,
-            // If either is Offline or CriticalError, return CriticalError.
-            (StatusType::Offline, _)
-            | (_, StatusType::Offline)
-            | (StatusType::CriticalError, _)
-            | (_, StatusType::CriticalError) => StatusType::CriticalError,
-            // If either is RecoverableError, return RecoverableError.
-            (StatusType::RecoverableError, _) | (_, StatusType::RecoverableError) => {
-                StatusType::RecoverableError
-            }
-            // If either is Spawning, return Spawning.
-            (StatusType::Spawning, _) | (_, StatusType::Spawning) => StatusType::Spawning,
-            // If either is Syncing, return Syncing.
-            (StatusType::Syncing, _) | (_, StatusType::Syncing) => StatusType::Syncing,
-            // Otherwise, return Ready.
-            _ => StatusType::Ready,
-        }
+        mempool_status.combine(block_cache_status)
     }
 }
 

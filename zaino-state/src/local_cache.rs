@@ -80,25 +80,7 @@ impl BlockCache {
             },
         };
 
-        match (non_finalised_state_status, finalised_state_status) {
-            // If either is Closing, return Closing.
-            (StatusType::Closing, _) | (_, StatusType::Closing) => StatusType::Closing,
-            // If either is Offline or CriticalError, return CriticalError.
-            (StatusType::Offline, _)
-            | (_, StatusType::Offline)
-            | (StatusType::CriticalError, _)
-            | (_, StatusType::CriticalError) => StatusType::CriticalError,
-            // If either is RecoverableError, return RecoverableError.
-            (StatusType::RecoverableError, _) | (_, StatusType::RecoverableError) => {
-                StatusType::RecoverableError
-            }
-            // If either is Spawning, return Spawning.
-            (StatusType::Spawning, _) | (_, StatusType::Spawning) => StatusType::Spawning,
-            // If either is Syncing, return Syncing.
-            (StatusType::Syncing, _) | (_, StatusType::Syncing) => StatusType::Syncing,
-            // Otherwise, return Ready.
-            _ => StatusType::Ready,
-        }
+        non_finalised_state_status.combine(finalised_state_status)
     }
 
     /// Sets the block cache to close gracefully.
@@ -220,25 +202,7 @@ impl BlockCacheSubscriber {
             },
         };
 
-        match (non_finalised_state_status, finalised_state_status) {
-            // If either is Closing, return Closing.
-            (StatusType::Closing, _) | (_, StatusType::Closing) => StatusType::Closing,
-            // If either is Offline or CriticalError, return CriticalError.
-            (StatusType::Offline, _)
-            | (_, StatusType::Offline)
-            | (StatusType::CriticalError, _)
-            | (_, StatusType::CriticalError) => StatusType::CriticalError,
-            // If either is RecoverableError, return RecoverableError.
-            (StatusType::RecoverableError, _) | (_, StatusType::RecoverableError) => {
-                StatusType::RecoverableError
-            }
-            // If either is Spawning, return Spawning.
-            (StatusType::Spawning, _) | (_, StatusType::Spawning) => StatusType::Spawning,
-            // If either is Syncing, return Syncing.
-            (StatusType::Syncing, _) | (_, StatusType::Syncing) => StatusType::Syncing,
-            // Otherwise, return Ready.
-            _ => StatusType::Ready,
-        }
+        non_finalised_state_status.combine(finalised_state_status)
     }
 }
 

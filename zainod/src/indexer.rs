@@ -158,21 +158,7 @@ impl Indexer {
             None => return 7,
         };
 
-        match (service_status, server_status) {
-            // If either is Closing, return Closing.
-            (StatusType::Closing, _) | (_, StatusType::Closing) => 4,
-            // If either is Offline or CriticalError, return CriticalError.
-            (StatusType::Offline, _)
-            | (_, StatusType::Offline)
-            | (StatusType::CriticalError, _)
-            | (_, StatusType::CriticalError) => 7,
-            // If either is Spawning, return Spawning.
-            (StatusType::Spawning, _) | (_, StatusType::Spawning) => 0,
-            // If either is Syncing, return Syncing.
-            (StatusType::Syncing, _) | (_, StatusType::Syncing) => 1,
-            // Otherwise, return Ready.
-            _ => 2,
-        }
+        StatusType::combine(service_status, server_status) as u16
     }
 
     /// Returns the current StatusType of the indexer.
